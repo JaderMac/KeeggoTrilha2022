@@ -21,7 +21,38 @@ public class testeFrame {
 		alertaDoFrame.accept();
 		driver.switchTo().defaultContent();
 		driver.findElement(By.id("elementosForm:nome")).sendKeys(mensagemDoFrame);
-		
+		driver.quit();
 	}
-
+	@Test
+	public void interagirComJanelas() {
+		System.setProperty("webdriver.chrome.driver",	
+				"D://Java Completo//Livro - "
+				+ "Automacao de testes/libs/drivers/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("file:///D:/Java%20Completo/Udemy%20-%20WebDriver%20e%20Grid/Arquivos/componentes.html");
+		driver.findElement(By.id("buttonPopUpEasy")).click();
+		driver.switchTo().window("Popup");
+		driver.findElement(By.tagName("textarea")).sendKeys("Deu Certo!");
+		driver.close();
+		driver.switchTo().window("");
+		driver.findElement(By.tagName("textarea")).sendKeys("e agora?");
+		driver.quit();
+	}
+	
+	@Test
+	public void interagirUsandoWindowHandler() {
+		System.setProperty("webdriver.chrome.driver",	
+				"D://Java Completo//Livro - "
+				+ "Automacao de testes/libs/drivers/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("file:///D:/Java%20Completo/Udemy%20-%20WebDriver%20e%20Grid/Arquivos/componentes.html");
+		driver.findElement(By.id("buttonPopUpHard")).click();
+		// System.out.println(driver.getWindowHandle());
+		// System.out.println(driver.getWindowHandles());
+		driver.switchTo().window((String) driver.getWindowHandles().toArray()[1]);
+		driver.findElement(By.tagName("textarea")).sendKeys("Deu Certo?");
+		driver.switchTo().window((String) driver.getWindowHandles().toArray()[0]);
+		driver.findElement(By.tagName("textarea")).sendKeys("e agora??");
+		driver.quit();
+	}
 }
