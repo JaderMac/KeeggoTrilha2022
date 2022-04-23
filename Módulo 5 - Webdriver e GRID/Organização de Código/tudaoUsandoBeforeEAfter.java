@@ -39,7 +39,7 @@ public class tudaoUsandoBeforeEAfter {
 		elemento = driver.findElement(By.id("elementosForm:esportes"));
 		Select comboEsporte = new Select(elemento);
 		comboEsporte.selectByVisibleText("Natacao");
-		driver.findElement(By.id("elementosForm:sugestoes")).sendKeys("Isso È uma sugest„o!");
+		driver.findElement(By.id("elementosForm:sugestoes")).sendKeys("Isso √© uma sugest√£o!");
 		driver.findElement(By.id("elementosForm:cadastrar")).click();
 		Assert.assertTrue(driver.findElement(By.id("resultado")).getText().startsWith("Cadastrado!"));
 		Assert.assertTrue(driver.findElement(By.id("descNome")).getText().endsWith("Jader"));
@@ -48,7 +48,7 @@ public class tudaoUsandoBeforeEAfter {
 		Assert.assertTrue(driver.findElement(By.id("descComida")).getText().endsWith("Pizza"));
 		Assert.assertTrue(driver.findElement(By.id("descEscolaridade")).getText().endsWith("especializacao"));
 		Assert.assertTrue(driver.findElement(By.id("descEsportes")).getText().endsWith("Natacao"));
-		Assert.assertTrue(driver.findElement(By.id("descSugestoes")).getText().endsWith("Isso È uma sugest„o!"));
+		Assert.assertTrue(driver.findElement(By.id("descSugestoes")).getText().endsWith("Isso √© uma sugest√£o!"));
 	}
 	
 	@Test
