@@ -25,7 +25,7 @@ public class desafioCadastro {
 		elemento = driver.findElement(By.id("elementosForm:esportes"));
 		Select comboEsporte = new Select(elemento);
 		comboEsporte.selectByVisibleText("Natacao");
-		driver.findElement(By.id("elementosForm:sugestoes")).sendKeys("Isso È uma sugest„o!");
+		driver.findElement(By.id("elementosForm:sugestoes")).sendKeys("Isso √© uma sugest√£o!");
 		driver.findElement(By.id("elementosForm:cadastrar")).click();
 		/* Como eu fiz
 		String resultado = driver.findElement(By.id("resultado")).getText();
@@ -36,10 +36,10 @@ public class desafioCadastro {
 		Assert.assertTrue(resultado.contains("Pizza"));
 		Assert.assertTrue(resultado.contains("especializacao"));
 		Assert.assertTrue(resultado.contains("Natacao"));
-		Assert.assertTrue(resultado.contains("Isso È uma sugest„o!"));
+		Assert.assertTrue(resultado.contains("Isso √© uma sugest√£o!"));
 		*/
 		
-		// soluÁ„o do professor
+		// solu√ß√£o do professor
 		Assert.assertTrue(driver.findElement(By.id("resultado")).getText().startsWith("Cadastrado!"));
 		Assert.assertTrue(driver.findElement(By.id("descNome")).getText().endsWith("Jader"));
 		Assert.assertTrue(driver.findElement(By.id("descSobrenome")).getText().endsWith("Machado"));
@@ -47,7 +47,7 @@ public class desafioCadastro {
 		Assert.assertTrue(driver.findElement(By.id("descComida")).getText().endsWith("Pizza"));
 		Assert.assertTrue(driver.findElement(By.id("descEscolaridade")).getText().endsWith("especializacao"));
 		Assert.assertTrue(driver.findElement(By.id("descEsportes")).getText().endsWith("Natacao"));
-		Assert.assertTrue(driver.findElement(By.id("descSugestoes")).getText().endsWith("Isso È uma sugest„o!"));
+		Assert.assertTrue(driver.findElement(By.id("descSugestoes")).getText().endsWith("Isso √© uma sugest√£o!"));
 		driver.quit();
 	}
 		
